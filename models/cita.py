@@ -1,10 +1,10 @@
 class Cita:
-    def __init__(self, id_cita, paciente, fecha, hora, tipo_examen):
+    def __init__(self, id_cita, paciente, fecha, hora, emo):
         self.id_cita = id_cita
         self.paciente = paciente
         self.fecha = fecha
         self.hora = hora
-        self.tipo_examen = tipo_examen
+        self.emo = emo
         self.estado = "Programada"
         
     def mostrar_cita(self):
@@ -13,6 +13,7 @@ class Cita:
         print(f"Paciente: {self.paciente.nombre}")
         print(f"Fecha: {self.fecha}")
         print(f"Hora: {self.hora}")
-        print(f"Tipo de Examen: {self.tipo_examen}")
+        print(f"Tipo de Examen: {self.emo.tipo}")
+        print(f"Perfil: {self.emo.perfil}")
         print(f"Estado: {self.estado}")
                                  
