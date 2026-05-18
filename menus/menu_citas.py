@@ -1,7 +1,7 @@
 from models.paciente import Paciente
 from models.cita import Cita
 from models.emo import Emo
-from menus.menu_auxiliares import menu_perfil_examen, menu_tipo_examen, menu_sexo
+from menus.menu_auxiliares import menu_perfil_examen, menu_tipo_examen, menu_sexo, pedir_dni, pedir_edad, pedir_empresa, pedir_nombre, pedir_fecha, pedir_hora
 from services.gestion_citas import generar_id_cita, mostrar_citas, registrar_cita, editar_cita,eliminar_cita
 
 
@@ -17,10 +17,10 @@ def menu_citas():
         opcion = input("Escoja la opción que desea realizar: ")
 
         if opcion == "1":
-            empresa = input("Razon social: ")
-            nombre = input("Nombre completo del paciente: ")
-            idPaciente = input("Documento de identidad: ")
-            edad = input("Edad del paciente: ")
+            empresa = pedir_empresa()
+            nombre = pedir_nombre()
+            idPaciente = pedir_dni()
+            edad = pedir_edad()
             sexo = menu_sexo()
 
             paciente = Paciente(nombre, idPaciente, edad, sexo, empresa)
@@ -31,8 +31,8 @@ def menu_citas():
             emo = Emo(tipo, perfil)
 
             idCita = generar_id_cita()
-            fecha = input("Fecha: ")
-            hora = input("Hora: ")
+            fecha = pedir_fecha()
+            hora = pedir_hora()
 
             cita = Cita(idCita, paciente, fecha, hora, emo)
 
