@@ -77,7 +77,7 @@ def pedir_nombre():
     while True:
         nombre = input("Nombre completo del paciente: ").upper()
 
-        if validar_texto_no_vacio(nombre) and validar_solo_letras(nombre) and validar_nombre_completo:
+        if validar_texto_no_vacio(nombre) and validar_solo_letras(nombre) and validar_nombre_completo(nombre):
             return nombre
 
         print("Nombre inválido: no debe estar vacío ni contener números y debe contener al menos un nombre y dos apellidos.")
@@ -119,4 +119,4 @@ def pedir_hora():
         if validar_hora(hora):
             return hora
 
-        print("Hora inválida: las citas solo pueden registrarse entre 07:00 y 10:30, use el formato HH:MM.")
+        print("Hora inválida: las citas solo pueden registrarse entre 07:00 y 11:00, use el formato HH:MM.")

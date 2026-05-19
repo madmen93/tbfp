@@ -2,7 +2,7 @@ from models.paciente import Paciente
 from models.cita import Cita
 from models.emo import Emo
 from menus.menu_auxiliares import menu_perfil_examen, menu_tipo_examen, menu_sexo, pedir_dni, pedir_edad, pedir_empresa, pedir_nombre, pedir_fecha, pedir_hora
-from services.gestion_citas import generar_id_cita, mostrar_citas, registrar_cita, editar_cita,eliminar_cita
+from services.gestion_citas import generar_id_cita, mostrar_citas, registrar_cita, editar_cita,eliminar_cita, validar_tope_atenciones
 
 
 def menu_citas():
@@ -31,9 +31,17 @@ def menu_citas():
             emo = Emo(tipo, perfil)
 
             idCita = generar_id_cita()
-            fecha = pedir_fecha()
-            hora = pedir_hora()
 
+            while True:
+                fecha = pedir_fecha()
+                hora = pedir_hora()
+
+                if not validar_tope_atenciones(fecha, hora):
+                    break
+
+                print("No se puede registrar la cita. El horario ya alcanzó el tope máximo de atenciones.")
+                print("Ingrese otra fecha u hora")
+                
             cita = Cita(idCita, paciente, fecha, hora, emo)
 
             registrar_cita(cita)

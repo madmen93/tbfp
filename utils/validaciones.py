@@ -20,14 +20,6 @@ def validar_dni(dni):
 def validar_edad(edad):
     return edad.isdigit() and int(edad) > 17
 
-
-""" def validar_hora(hora):
-    return ":" in hora and len(hora) == 5 """
-
-
-""" def validar_fecha(fecha):
-    return "/" in fecha and len(fecha) == 10
- """
 def validar_fecha(fecha):
     try:
         fecha_cita = datetime.strptime(fecha, "%d/%m/%Y").date()
@@ -45,9 +37,10 @@ def validar_hora(hora):
         hora_cita = datetime.strptime(hora, "%H:%M").time()
 
         hora_inicio = datetime.strptime("07:00", "%H:%M").time()
-        hora_fin = datetime.strptime("10:30", "%H:%M").time()
+        hora_fin = datetime.strptime("11:00", "%H:%M").time()
 
         return hora_inicio <= hora_cita <= hora_fin
 
     except ValueError:
         return False
+    
