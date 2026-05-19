@@ -2,6 +2,8 @@ from models.cita import Cita
 
 lista_citas = []
 
+TOPE_POR_HORARIO = 15
+
 # GENERADOR DE ID CITAS
 
 def generar_id_cita():
@@ -66,8 +68,18 @@ def eliminar_cita():
                 print("No se reconoce este comando.")
         else:
             print("\nNo se encontró la cita.")
-            
 
+
+# VALIDACIÓN  DEL TOPE DE CITAS POR HORA
+
+def validar_tope_atenciones(fecha, hora):
+    contador = 0
+
+    for cita in lista_citas:
+        if cita.fecha == fecha and cita.hora == hora:
+            contador += 1
+
+    return contador < TOPE_POR_HORARIO
         
          
          
