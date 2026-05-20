@@ -46,3 +46,4 @@ def menu_principal():
             break
         else:
             print("\nOpción inválida. Intente nuevamente")
+
