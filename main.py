@@ -1,3 +1,5 @@
-from menus.menu_principal import menu_principal
+#from menus.menu_principal import menu_principal
+from interfaces.app_tkinter import iniciar_app
 
-menu_principal()
+iniciar_app()
+#menu_principal()
