@@ -23,9 +23,7 @@ def validar_edad(edad):
 def validar_fecha(fecha):
     try:
         fecha_cita = datetime.strptime(fecha, "%d/%m/%Y").date()
-        manana = date.today() + timedelta(days=1)
-
-        return fecha_cita >= manana
+        return fecha_cita >= date.today()
 
     except ValueError:
         return False
@@ -36,11 +34,12 @@ def validar_hora(hora):
     try:
         hora_cita = datetime.strptime(hora, "%H:%M").time()
 
-        hora_inicio = datetime.strptime("07:00", "%H:%M").time()
-        hora_fin = datetime.strptime("11:00", "%H:%M").time()
+        hora_inicio = datetime.strptime("19:00", "%H:%M").time()
+        hora_fin = datetime.strptime("22:00", "%H:%M").time()
 
         return hora_inicio <= hora_cita <= hora_fin
 
     except ValueError:
         return False
     
+
