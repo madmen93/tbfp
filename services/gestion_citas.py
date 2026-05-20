@@ -95,3 +95,6 @@ def validar_tope_atenciones(fecha, hora):
             contador += 1
 
     return contador < TOPE_POR_HORARIO
+        
+         
+         

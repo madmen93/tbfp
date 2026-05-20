@@ -42,4 +42,3 @@ def validar_hora(hora):
     except ValueError:
         return False
     
-
