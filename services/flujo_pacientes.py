@@ -219,10 +219,3 @@ def menu_flujo_pacientes():
 
         else:
             print("❌ Opción inválida")
-
-
-# =====================================================
-# INICIAR SISTEMA
-# =====================================================
-
-menu_flujo_pacientes()
