@@ -35,8 +35,8 @@ def menu_citas():
             while True:
                 fecha = pedir_fecha()
                 hora = pedir_hora()
-                
-                if validar_tope_atenciones(fecha, hora):
+
+                if not validar_tope_atenciones(fecha, hora):
                     break
 
                 print("No se puede registrar la cita. El horario ya alcanzó el tope máximo de atenciones.")
