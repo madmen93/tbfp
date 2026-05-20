@@ -4,6 +4,21 @@ lista_citas = []
 
 TOPE_POR_HORARIO = 15
 
+HORAS_DISPONIBLES = [
+    "19:00", "19:15", "19:30", "19:45",
+    "20:00", "20:15", "20:30", "20:45",
+    "21:00", "21:15", "21:30", "21:45",
+    "22:00",
+]
+
+
+def contar_citas_horario(fecha, hora):
+    return sum(1 for c in lista_citas if c.fecha == fecha and c.hora == hora)
+
+
+def contar_citas_fecha(fecha):
+    return sum(1 for c in lista_citas if c.fecha == fecha)
+
 # GENERADOR DE ID CITAS
 
 def generar_id_cita():
@@ -80,6 +95,3 @@ def validar_tope_atenciones(fecha, hora):
             contador += 1
 
     return contador < TOPE_POR_HORARIO
-        
-         
-         
